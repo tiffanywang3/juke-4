@@ -1,5 +1,13 @@
 <div>
     <h3>{{ playlist.name }}</h3>
+    <form class="form-horizontal" ng-submit="addSong(playlist._id, currentSong)" name="playlistForm">
+        <select ng-model="currentSong"> 
+            <option ng-repeat="song in songlist">{{song.name}}</option>
+
+        </select>
+        <button type="submit" class="btn btn-success">Add Song</button>
+    </form>
+
     <table class='table' ng-show="playlist.songs.length">
         <thead>
             <tr>

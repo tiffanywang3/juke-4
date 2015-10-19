@@ -5,19 +5,20 @@ app.controller('NewPlaylistCtrl', function ($scope, PlaylistFactory, $state) {
 			return false;
 		}; 
 		var defaultForm = {playlistInput: ""}
-		return PlaylistFactory.create($scope.playlist)
-		.then(function(playlist){
+		PlaylistFactory.create($scope.playlist)
+		.then(function(playlistId){
+			//console.log($scope.playlistForm);
 			$scope.playlistForm.$setPristine();
 			$scope.playlist = angular.copy(defaultForm);
-			return playlist
-			
+			//console.log(playlistId)
+			return playlistId;
 		})
 		.then(function(id){
-			$state.go('playlist', {id:id});
+			$state.go('playlist', {id: id});
+		
 		})
 		
-
-
+		
 	}
 	
 	

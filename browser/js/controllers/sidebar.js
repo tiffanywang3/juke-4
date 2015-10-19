@@ -6,7 +6,8 @@ app.controller('SidebarCtrl', function ($scope, PlaylistFactory) {
 	// 	})
 	// });
 	
-	PlaylistFactory.fetchAll().then(function(playlists){
+	PlaylistFactory.fetchAll()
+	.then(function(playlists){
 		//console.log(playlists)
 		$scope.allPlaylists = playlists;
 	});

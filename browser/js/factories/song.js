@@ -10,5 +10,11 @@ app.factory('SongFactory', function () {
 		raw.audioUrl = '/api/songs/' + raw._id + '.audio';
 		return raw;
 	};
+	// SongFactory.fetchAllSongs = function () {
+	//     return $http.get('/api/songs')
+	//     .then(function (response) {
+	//         return response.data;
+	//     });
+ //    };
 	return SongFactory;
 });

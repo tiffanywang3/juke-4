@@ -6,6 +6,9 @@ app.config(function ($stateProvider) {
         resolve: {
 			thePlaylist: function (PlaylistFactory, $stateParams) {
 				return PlaylistFactory.fetchById($stateParams.id);
+			},
+			theSongList: function(PlaylistFactory){
+				return PlaylistFactory.fetchAllSongs();
 			}
 		}
 	});

@@ -10,6 +10,15 @@ app.factory('PlaylistFactory', function($http){
             return cachedPlaylists;
         });
     };
+	PlaylistFactory.fetchAllSongs = function () {
+        return $http.get('/api/songs')
+        .then(function (response) {
+        	console.log(response)
+            return response.data;
+        });
+    };
+
+
 	PlaylistFactory.fetchById = function (id) {
 		return $http.get('/api/playlists/' + id)
 		.then(function (response) {
@@ -33,6 +42,20 @@ app.factory('PlaylistFactory', function($http){
             return playlist._id;
         });
     };
+
+
+
+    PlaylistFactory.addSong = function(playlistId, song){
+    	console.log("playlistId ,", playlistId);
+    	console.log("song ,", song);
+    	return $http.post('/api/playlists/' + playlistId + '/songs', {song: song})
+        // .then(function (response) {
+        //     var playlist = response.data
+        //     cachedPlaylists.push(playlist);
+        //     return playlist._id;
+        // });
+    }
+
 
     return PlaylistFactory;
 
